@@ -33,3 +33,33 @@
 #
 # hi = Solution()
 # print(hi.selfDividingNumbers(1, 22))
+
+# 13. Roman to Integer
+# class Solution:
+#     def romanToInt(self, s):
+#
+#         roman_to_int = {
+#             'I': 1, 'V': 5, 'X': 10, 'L': 50,
+#             'C': 100, 'D': 500, 'M': 1000
+#         }
+#
+#         result = 0
+#
+#         for i in range(len(s)):
+#             if i < len(s) - 1 and roman_to_int[s[i]] < roman_to_int[s[i + 1]]:
+#                 result -= roman_to_int[s[i]]
+#             else:
+#                 result += roman_to_int[s[i]]
+#
+#         return result
+
+class Solution:
+    def plusOne(self, digits):
+        number = int(''.join(map(str, digits)))
+        add_one = number + 1
+        result = [int(digit) for digit in str(add_one)]
+        return result
+
+
+hi = Solution()
+print(hi.plusOne([1, 2, 3, 4]))
