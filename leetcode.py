@@ -14,6 +14,7 @@
 # hi = Solution()
 # print(hi.checkPerfectNumber(28))
 
+
 # 728. Self Dividing Numbers
 # class Solution:
 #     def selfDividingNumbers(self, left: int, right: int):
@@ -53,13 +54,41 @@
 #
 #         return result
 
-class Solution:
-    def plusOne(self, digits):
-        number = int(''.join(map(str, digits)))
-        add_one = number + 1
-        result = [int(digit) for digit in str(add_one)]
-        return result
+# class Solution:
+#     def plusOne(self, digits):
+#         number = int(''.join(map(str, digits)))
+#         add_one = number + 1
+#         result = [int(digit) for digit in str(add_one)]
+#         return result
+#
+#
+# hi = Solution()
+# print(hi.plusOne([1, 2, 3, 4]))
+
+# class Solution(object):
+#     def mySqrt(self, x):
+#         return int(sqrt(x))
+
+# class Solution(object):
+#
+#     def addDigits(self, num):
+#         if num < 10:
+#             return num
+#         return self.addDigits(sum(int(digit) for digit in str(num)))
 
 
-hi = Solution()
-print(hi.plusOne([1, 2, 3, 4]))
+# class Solution(object):
+#     def addStrings(self, num1, num2):
+#         return str(int(num1) + int(num2))
+
+# 1903 Not solved
+# class Solution(object):
+#     def largestOddNumber(self, num: str):
+#         max_odd = -1
+#         if int(num) % 2 == 1:
+#             return num
+#         else:
+#             for i in num:
+#                 if int(i) % 2 == 1:
+#                     return str(max(max_odd, int(i)))
+#             return ''
