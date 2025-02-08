@@ -5,12 +5,11 @@
 #             nums.sort()
 #
 
-class Solution:
-    def singleNumber(self, nums):
-        for i in nums:
-            if nums.count(i) == 1:
-                return i
+def problem(num):
+    count = 0
+    for i in range(1, num + 1):
+        count += i
+        return count
 
-
-hi = Solution()
-print(hi.singleNumber([2, 2, 1, 1, 3, 3]))
+if __name__ == '__main__':
+    print(problem(5))
