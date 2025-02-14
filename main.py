@@ -1,0 +1,6 @@
+# print('Salom Sardor')
+# print('Salom Otabek')
+# print('Salom Diyor')
+a = input('Ismingizni kiriting: ')
+b = input('Ismingizni kiriting: ')
+print(a*b)
