@@ -1,9 +1,14 @@
+# # 268
 # class Solution:
 #     def missingNumber(self, nums):
-#         maximum = max(nums)
-#         for i in range(maximum):
-#             nums.sort()
+#         nums.sort()
+#         for i in range(len(nums)):
+#             if i != nums[i]:
+#                 return i
 #
+#
+# hi = Solution()
+# print(hi.missingNumber([3, 0, 1]))
 
 # def print_full_name(first, last):
 #     print(f"Hello {first} {last}! You just delved into python.")
@@ -53,3 +58,17 @@
 #
 # hi = Solution()
 # print(hi.numIdenticalPairs([1, 2, 3, 1, 1, 3]))
+
+
+# 217
+# class Solution:
+#     def containsDuplicate(self, nums: List[int]) -> bool:
+#         for i in range(len(nums)):
+#             for j in range(i + 1, len(nums)):
+#                 if nums[i] == nums[j]:
+#                     return True
+#         return False
+#
+#
+# hi = Solution()
+# print(hi.containsDuplicate([1, 2, 3, 4]))
