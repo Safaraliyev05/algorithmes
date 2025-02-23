@@ -225,10 +225,15 @@
 #     print(row)
 
 
-a = 48  # bolalar
-b = 28  # qizlar
-c = a - b  # o'g'il bollar
-d = b * 3  # qizlar ruchkasi
-e = c * 2  # o'g'il bollar ruchkasi
-print(d + e)  # jami ruchka
+# a = 48  # bolalar
+# b = 28  # qizlar
+# c = a - b  # o'g'il bollar
+# d = b * 3  # qizlar ruchkasi
+# e = c * 2  # o'g'il bollar ruchkasi
+# print(d + e)  # jami ruchka
 # @safaral1yev
+
+print("fhkadddddddddddddddddddddddddddddddddddddddddb\n"
+      "jknjnvnkjvcskjskdggggggg\n"
+      "dsfl n\n"
+      "ddjsvhllllllllllb\n")
