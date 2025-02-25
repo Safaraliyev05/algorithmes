@@ -261,26 +261,63 @@
 #
 # print(func([4, 8, 3, 0, 5, 6, 9, 1], 4))
 
-class Solution(object):
-    def decrypt(self, code, k):
-        n = len(code)
-        answer = [0] * n
+# class Solution(object):
+#     def decrypt(self, code, k):
+#         answer = [0] * len(code)
+#
+#         if k == 0:
+#             return [0] * len(code)
+#
+#         for i in range(len(code)):
+#             count = 0
+#             if k > 0:
+#                 for j in range(1, k + 1):
+#                     count += code[(i + j) % len(code)] # 3, 2, 1.
+#             else:
+#                 for j in range(1, -k + 1):
+#                     count += code[(i - j) % len(code)]
+#             answer[i] = count
+#
+#         return answer
+#
+#
+# hi = Solution()
+# print(hi.decrypt([5, 7, 1, 4], 3))
+# print(hi.decrypt([1, 2, 3, 4], 0))
+# print(hi.decrypt([2, 4, 9, 3], -2))
 
-        if k == 0:
-            return [0] * n
 
-        for i in range(n):
-            total = 0
-            if k > 0:
-                for j in range(1, k + 1):
-                    total += code[(i + j) % n]
-            else:
-                for j in range(1, -k + 1):
-                    total += code[(i - j) % n]
-            answer[i] = total
+# a = int(input('Sonni kiriting: '))
+# if a % 2 == 0:
+#     print(f'{a} soni juft')
+# else:
+#     print(f'{a} soni toq')
 
-        return answer
+# 1 2 3 0 -1 -2- -3
+# a = int(input('Sonni kiriting: '))
+# b = int(input('Sonni kiriting: '))
+# if a > 0:
+#     if b > 0:
+#         print("ikkita musbat")
+#     else:
+#         print("bitta manfiy, bitta musbat")
+# else:
+#     print("ikkita manfiy")
+
+# age = int(input('Yoshingizni kiriting: '))
+# if age > 18:
+#     tajriba = int(input('Tajribangizni kiriting: '))
+#     if tajriba > 2:
+#         print('ishga olinsin')
+#     else:
+#         print('yetarli tajribaga ega emas')
+# else:
+#     print('kichkinasiz')
 
 
-hi = Solution()
-print(hi.decrypt([5, 7, 1, 4], 3))
+a = int(input())
+if a > 18:
+    if a > 18 and a < 25: # or
+        print('20ming som')
+else:
+    print('sur')
