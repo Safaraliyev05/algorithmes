@@ -224,16 +224,38 @@
 # for row in matrix:
 #     print(row)
 
+# class Solution(object):
+#     def calPoints(self, operations):
+#         record = []
+#         for i, nums in enumerate(operations):
+#             if nums == 'C':
+#                 operations.remove(i - 1)
+#             elif nums == 'D':
+#                 record.append(i * 2)
+#             elif nums == '+':
+#                 record.append((i - 1) + (i - 2))
+#             else:
+#                 record.append(nums)
+#         return record
+#
+#
+# hi = Solution()
+# print(hi.calPoints(["5", "2", "C", "D", "+"]))
 
-# a = 48  # bolalar
-# b = 28  # qizlar
-# c = a - b  # o'g'il bollar
-# d = b * 3  # qizlar ruchkasi
-# e = c * 2  # o'g'il bollar ruchkasi
-# print(d + e)  # jami ruchka
-# @safaral1yev
+# Sliding window
+def func(nums, k):
+    sum = 0
+    maximum = sum
+    for i in range(k):
+        sum += nums[i]
 
-print("fhkadddddddddddddddddddddddddddddddddddddddddb\n"
-      "jknjnvnkjvcskjskdggggggg\n"
-      "dsfl n\n"
-      "ddjsvhllllllllllb\n")
+    for i in range(k, len(nums)):
+        sum += nums[i]
+        sum -= nums[i - k]
+        if maximum < sum:
+            maximum = sum
+
+    return maximum
+
+
+print(func([4, 8, 3, 0, 5, 6, 9, 1], 4))
