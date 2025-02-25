@@ -224,38 +224,63 @@
 # for row in matrix:
 #     print(row)
 
+# 682
 # class Solution(object):
 #     def calPoints(self, operations):
 #         record = []
-#         for i, nums in enumerate(operations):
-#             if nums == 'C':
-#                 operations.remove(i - 1)
-#             elif nums == 'D':
-#                 record.append(i * 2)
-#             elif nums == '+':
-#                 record.append((i - 1) + (i - 2))
+#         for nums in operations:
+#             if nums == "C":
+#                 record.pop()
+#             elif nums == "D":
+#                 record.append(2 * record[-1])
+#             elif nums == "+":
+#                 record.append(record[-1] + record[-2])
 #             else:
-#                 record.append(nums)
-#         return record
+#                 record.append(int(nums))
+#         return sum(record)
 #
 #
 # hi = Solution()
 # print(hi.calPoints(["5", "2", "C", "D", "+"]))
 
 # Sliding window
-def func(nums, k):
-    sum = 0
-    maximum = sum
-    for i in range(k):
-        sum += nums[i]
+# def func(nums, k):
+#     sum = 0
+#     maximum = sum
+#     for i in range(k):
+#         sum += nums[i]
+#
+#     for i in range(k, len(nums)):
+#         sum += nums[i]
+#         sum -= nums[i - k]
+#         if maximum < sum:
+#             maximum = sum
+#
+#     return maximum
+#
+#
+# print(func([4, 8, 3, 0, 5, 6, 9, 1], 4))
 
-    for i in range(k, len(nums)):
-        sum += nums[i]
-        sum -= nums[i - k]
-        if maximum < sum:
-            maximum = sum
+class Solution(object):
+    def decrypt(self, code, k):
+        n = len(code)
+        answer = [0] * n
 
-    return maximum
+        if k == 0:
+            return [0] * n
+
+        for i in range(n):
+            total = 0
+            if k > 0:
+                for j in range(1, k + 1):
+                    total += code[(i + j) % n]
+            else:
+                for j in range(1, -k + 1):
+                    total += code[(i - j) % n]
+            answer[i] = total
+
+        return answer
 
 
-print(func([4, 8, 3, 0, 5, 6, 9, 1], 4))
+hi = Solution()
+print(hi.decrypt([5, 7, 1, 4], 3))
