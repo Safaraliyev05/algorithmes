@@ -299,24 +299,33 @@
 # print(hi.lengthOfLastWord("luffy is still joyboy"))
 
 # 3289
-# class Solution(object):
-#     def getSneakyNumbers(self, nums):
-#         result = []
-#         my_set = set()
-#         for num in nums:
-#             if num not in my_set:
-#                 my_set.add(num)
-#             else:
-#                 result.append(num)
-#         return result
-#
-#
-# hi = Solution()
-# print(hi.getSneakyNumbers([0, 3, 2, 1, 3, 2]))
-# print(hi.getSneakyNumbers([0, 1, 1, 0]))
+class Solution(object):
+    def getSneakyNumbers(self, nums):
+        result = []
+        my_set = set()
+        for num in nums:
+            if num not in my_set:
+                my_set.add(num)
+            else:
+                result.append(num)
+        return result
+
+
+hi = Solution()
+print(hi.getSneakyNumbers([0, 3, 2, 1, 3, 2]))
+print(hi.getSneakyNumbers([0, 1, 1, 0]))
 
 
 # 771
 class Solution(object):
     def numJewelsInStones(self, jewels, stones):
-        pass
+        result = 0
+        for stone in stones:
+            if stone in jewels:
+                result += 1
+        return result
+
+
+hi = Solution()
+print(hi.numJewelsInStones(jewels="aA", stones="aAAbbbb"))
+print(hi.numJewelsInStones(jewels="z", stones="ZZ"))
