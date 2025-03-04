@@ -224,6 +224,7 @@
 # for row in matrix:
 #     print(row)
 
+
 # 682
 # class Solution(object):
 #     def calPoints(self, operations):
@@ -285,3 +286,37 @@
 # print(hi.decrypt([5, 7, 1, 4], 3))
 # print(hi.decrypt([1, 2, 3, 4], 0))
 # print(hi.decrypt([2, 4, 9, 3], -2))
+
+# 58
+# class Solution(object):
+#     def lengthOfLastWord(self, s):
+#         return len((s.split())[-1])
+#
+#
+# hi = Solution()
+# print(hi.lengthOfLastWord("hello world"))
+# print(hi.lengthOfLastWord("   fly me   to   the moon  "))
+# print(hi.lengthOfLastWord("luffy is still joyboy"))
+
+# 3289
+# class Solution(object):
+#     def getSneakyNumbers(self, nums):
+#         result = []
+#         my_set = set()
+#         for num in nums:
+#             if num not in my_set:
+#                 my_set.add(num)
+#             else:
+#                 result.append(num)
+#         return result
+#
+#
+# hi = Solution()
+# print(hi.getSneakyNumbers([0, 3, 2, 1, 3, 2]))
+# print(hi.getSneakyNumbers([0, 1, 1, 0]))
+
+
+# 771
+class Solution(object):
+    def numJewelsInStones(self, jewels, stones):
+        pass
