@@ -1,4 +1,4 @@
-# # 268
+# 268
 # class Solution:
 #     def missingNumber(self, nums):
 #         nums.sort()
@@ -72,7 +72,7 @@
 #
 # hi = Solution()
 # print(hi.containsDuplicate([1, 2, 3, 4]))
-#
+
 # 977
 # class Solution(object):
 #     def sortedSquares(self, nums):
@@ -92,7 +92,7 @@
 #
 # hi = Solution()
 # print(hi.sortedSquares([-4, -1, 0, 3, 10]))
-#
+
 # 961
 # class Solution(object):
 #     def repeatedNTimes(self, nums):
@@ -109,7 +109,7 @@
 # nums = [1, 2, 3, 4, 5, 6, 7, 8, 9]
 # for i in range(len(nums)):
 #     print(i, nums[i])
-#
+
 # 922
 # class Solution(object):
 #     def sortArrayByParityII(self, nums):
@@ -131,7 +131,7 @@
 #
 # hi = Solution()
 # print(hi.sortArrayByParityII([4, 1, 2, 1]))
-#
+
 # 905
 # class Solution(object):
 #     def sortArrayByParity(self, nums):
@@ -147,7 +147,7 @@
 #
 # hi = Solution()
 # print(hi.sortArrayByParity([3, 1, 2, 4]))
-#
+
 # 1967
 # class Solution(object):
 #     def numOfStrings(self, patterns, word):
@@ -161,7 +161,7 @@
 # hi = Solution()
 # print(hi.numOfStrings(["a", "abc", "bc", "d"], "abc"))
 # print(hi.numOfStrings(["a", "b", "c"], "aaaaabbbbb"))
-#
+
 # 3190
 # class Solution(object):
 #     def minimumOperations(self, nums):
@@ -175,7 +175,7 @@
 # hi = Solution()
 # print(hi.minimumOperations([1, 2, 3, 4]))
 # print(hi.minimumOperations([3, 6, 9]))
-#
+
 # 2942
 # class Solution(object):
 #     def findWordsContaining(self, words, x):
@@ -192,7 +192,7 @@
 # print(hi.findWordsContaining(["leet", "code"], 'e'))
 # print(hi.findWordsContaining(["abc", "bcd", "aaaa", "cbc"], 'a'))
 # print(hi.findWordsContaining(["abc", "bcd", "aaaa", "cbc"], 'z'))
-#
+
 # 3452 ----------------
 # class Solution(object):
 #     def sumOfGoodNumbers(self, nums, k):
@@ -299,33 +299,44 @@
 # print(hi.lengthOfLastWord("luffy is still joyboy"))
 
 # 3289
+# class Solution(object):
+#     def getSneakyNumbers(self, nums):
+#         result = []
+#         my_set = set()
+#         for num in nums:
+#             if num not in my_set:
+#                 my_set.add(num)
+#             else:
+#                 result.append(num)
+#         return result
+#
+#
+# hi = Solution()
+# print(hi.getSneakyNumbers([0, 3, 2, 1, 3, 2]))
+# print(hi.getSneakyNumbers([0, 1, 1, 0]))
+#
+#
+# # 771
+# class Solution(object):
+#     def numJewelsInStones(self, jewels, stones):
+#         result = 0
+#         for stone in stones:
+#             if stone in jewels:
+#                 result += 1
+#         return result
+#
+#
+# hi = Solution()
+# print(hi.numJewelsInStones(jewels="aA", stones="aAAbbbb"))
+# print(hi.numJewelsInStones(jewels="z", stones="ZZ"))
+
+
+# 1684
 class Solution(object):
-    def getSneakyNumbers(self, nums):
-        result = []
-        my_set = set()
-        for num in nums:
-            if num not in my_set:
-                my_set.add(num)
-            else:
-                result.append(num)
-        return result
-
-
-hi = Solution()
-print(hi.getSneakyNumbers([0, 3, 2, 1, 3, 2]))
-print(hi.getSneakyNumbers([0, 1, 1, 0]))
-
-
-# 771
-class Solution(object):
-    def numJewelsInStones(self, jewels, stones):
+    def countConsistentStrings(self, allowed, words):
+        words = set(words)
         result = 0
-        for stone in stones:
-            if stone in jewels:
-                result += 1
-        return result
 
 
 hi = Solution()
-print(hi.numJewelsInStones(jewels="aA", stones="aAAbbbb"))
-print(hi.numJewelsInStones(jewels="z", stones="ZZ"))
+print(hi.countConsistentStrings(allowed="ab", words=["ad", "bd", "aaab", "baa", "badab"]))

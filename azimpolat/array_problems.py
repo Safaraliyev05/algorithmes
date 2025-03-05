@@ -91,7 +91,7 @@ def maxArea(nums: list) -> int:
     return max_area
 
 
-# 6
+# 6 prefix precompute
 def sign(num):
     if num < 0:
         return -1
