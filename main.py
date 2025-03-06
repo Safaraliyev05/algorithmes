@@ -141,3 +141,14 @@ from typing import List
 # print(two_pointer([1, 3, 5, 7, 9, 11, 14], 16))
 # print(three_sum([1, 3, 5, 7, 9, 11, 14], 17))
 # print(middle([1, 3, 5, 7, 9, 11, 14], 20))
+
+class Solution(object):
+    def moveZeroes(self, nums):
+        """
+        :type nums: List[int]
+        :rtype: None Do not return anything, modify nums in-place instead.
+        """
+
+
+hi = Solution()
+hi.moveZeroes([0,1,0,3,12])
