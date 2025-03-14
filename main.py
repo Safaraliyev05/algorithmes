@@ -151,4 +151,4 @@ class Solution(object):
 
 
 hi = Solution()
-hi.moveZeroes([0,1,0,3,12])
+hi.moveZeroes([0, 1, 0, 3, 12])
