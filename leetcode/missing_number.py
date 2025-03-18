@@ -332,11 +332,80 @@
 
 
 # 1684
-class Solution(object):
-    def countConsistentStrings(self, allowed, words):
-        words = set(words)
-        result = 0
+# class Solution(object):
+#     def countConsistentStrings(self, allowed, words):
+#         words = set(words)
+#         result = 0
+#
+#
+# hi = Solution()
+# print(hi.countConsistentStrings(allowed="ab", words=["ad", "bd", "aaab", "baa", "badab"]))
 
+# 1920
+# class Solution(object):
+#     def buildArray(self, nums):
+#         result = []
+#         for i in range(len(nums)):
+#             result.append(nums[nums[i]])
+#         return result
+#
+#
+# hi = Solution()
+# print(hi.buildArray([0, 2, 1, 5, 3, 4])) # [0,1,2,4,5,3]
+# print(hi.buildArray([5, 0, 1, 2, 3, 4])) # [4,5,0,1,2,3]
 
-hi = Solution()
-print(hi.countConsistentStrings(allowed="ab", words=["ad", "bd", "aaab", "baa", "badab"]))
+# 1512
+# class Solution(object):
+#     def numIdenticalPairs(self, nums):
+#         count = 0
+#         for i in range(len(nums)):
+#             for j in range(i + 1, len(nums)):
+#                 if nums[i] == nums[j]:
+#                     count += 1
+#         return count
+# 
+# 
+# hi = Solution()
+# print(hi.numIdenticalPairs([1, 2, 3, 1, 1, 3]))
+# print(hi.numIdenticalPairs([1, 1, 1, 1]))
+# print(hi.numIdenticalPairs([1, 2, 3]))
+
+# 1290
+# Definition for singly-linked list.
+# class ListNode(object):
+#     def __init__(self, val=0, next=None):
+#         self.val = val
+#         self.next = next
+# class Solution(object):
+#     def getDecimalValue(self, head):
+#         stringbuilder = ''
+#         current = head
+#
+#         while current != None:
+#             stringbuilder += str(current.val)
+#             current = current.next
+#
+#         return int(stringbuilder, 2)
+
+# 3467
+# class Solution(object):
+#     def transformArray(self, nums):
+#         result = []
+#         for i in nums:
+#             if i % 2 == 0:
+#                 result.append(0)
+#             else:
+#                 result.append(1)
+#
+#         return sorted(result)
+
+user = {
+    "name": "Sardor",
+    "age": 22
+}
+
+user['address'] = 'Tashkent'
+user['maktab'] = 'Bitirgan'
+print(user['name'])
+print(user['address'])
+print(user['maktab'])
