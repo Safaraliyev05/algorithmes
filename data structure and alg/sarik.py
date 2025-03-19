@@ -70,19 +70,24 @@
 # hi = Solution()
 # hi.moveZeroes([0, 1, 0, 3, 12])
 
-def func(n):
-    if n < 1:
-        print("1 dan kop")
-        return
+# def func(n):
+#     if n < 1:
+#         print("1 dan kop")
+#         return
+#
+#     for i in range(n):
+#         for j in range(n):
+#             if i == j or i + j == n - 1:
+#                 print("X")
+#             else:
+#                 print(" ")
+#         print()
+#
+#
+# size = int(input("Enter: "))
+# func(size)
 
-    for i in range(n):
-        for j in range(n):
-            if i == j or i + j == n - 1:
-                print("X")
-            else:
-                print(" ")
-        print()
+rows = 5
 
-
-size = int(input("Enter: "))
-func(size)
+for i in range(1, rows + 1):
+    print(" " * (rows - i) + "*" * (2 * i - 1))

@@ -9,8 +9,6 @@
 #
 #
 # print(moveZeroes([0, 1, 0, 3, 12]))
-from typing import List
-
 
 # 2
 # def reverse(nums, i, j):
@@ -152,20 +150,3 @@ from typing import List
 #
 # hi = Solution()
 # hi.moveZeroes([0, 1, 0, 3, 12])
-
-def print_x_sign(n):
-    if n < 1:
-        print("Size must be at least 1")
-        return
-
-    for i in range(n):
-        for j in range(n):
-            if i == j or i + j == n - 1:
-                print("X", end=" ")
-            else:
-                print(" ", end=" ")
-        print()
-
-
-size = int(input("Enter size: "))
-print_x_sign(size)
