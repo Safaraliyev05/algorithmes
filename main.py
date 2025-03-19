@@ -142,13 +142,30 @@ from typing import List
 # print(three_sum([1, 3, 5, 7, 9, 11, 14], 17))
 # print(middle([1, 3, 5, 7, 9, 11, 14], 20))
 
-class Solution(object):
-    def moveZeroes(self, nums):
-        """
-        :type nums: List[int]
-        :rtype: None Do not return anything, modify nums in-place instead.
-        """
+# class Solution(object):
+#     def moveZeroes(self, nums):
+#         """
+#         :type nums: List[int]
+#         :rtype: None Do not return anything, modify nums in-place instead.
+#         """
+#
+#
+# hi = Solution()
+# hi.moveZeroes([0, 1, 0, 3, 12])
+
+def print_x_sign(n):
+    if n < 1:
+        print("Size must be at least 1")
+        return
+
+    for i in range(n):
+        for j in range(n):
+            if i == j or i + j == n - 1:
+                print("X", end=" ")
+            else:
+                print(" ", end=" ")
+        print()
 
 
-hi = Solution()
-hi.moveZeroes([0, 1, 0, 3, 12])
+size = int(input("Enter size: "))
+print_x_sign(size)
