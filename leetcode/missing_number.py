@@ -399,16 +399,83 @@
 #
 #         return sorted(result)
 
-from ursina import *
+# 1672
+# class Solution(object):
+#     def maximumWealth(self, accounts):
+#         maximum = 0
+#         for account in accounts:
+#             if maximum < sum(account):
+#                 maximum = sum(account)
+#         return maximum
+#
+#
+# hi = Solution()
+# print(hi.maximumWealth([[1, 2, 3], [3, 2, 1]]))
+# print(hi.maximumWealth([[1, 5], [7, 3], [3, 5]]))
+# print(hi.maximumWealth([[2, 8, 7], [7, 1, 3], [1, 9, 5]]))
 
-app = Ursina()
+# 1431
+# class Solution(object):
+#     def kidsWithCandies(self, candies, extraCandies):
+#         result = []
+#         maximum = max(candies)
+#         for candy in candies:
+#             if candy + extraCandies >= maximum:
+#                 result.append(True)
+#             else:
+#                 result.append(False)
+#         return result
+#
+#
+# hi = Solution()
+# print(hi.kidsWithCandies(candies=[2, 3, 5, 1, 3], extraCandies=3))
+# print(hi.kidsWithCandies([4, 2, 1, 1, 2], extraCandies=1))
+# print(hi.kidsWithCandies(candies=[12, 1, 12], extraCandies=10))
 
-cube = Entity(model='cube', color=hsv(300,1,1), scale=2, collider='box')
+# 1470
+# class Solution(object):
+#     def shuffle(self, nums, n):
+#         result = []
+#         for i in range(n):
+#             result.append(nums[i])
+#             result.append(nums[i + n])
+#         return result
+#
+# hi = Solution()
+# print(hi.shuffle(nums=[2, 5, 1, 3, 4, 7], n=3))
 
-def spin():
-    cube.animate('rotation_y', cube.rotation_y+360, duration=2, curve=curve.in_out_expo)
+# 3162
+# class Solution(object):
+#     def numberOfPairs(self, nums1, nums2, k):
+#         count = 0
+#         for i in nums1:
+#             for j in nums2:
+#                 if i % (j * k) == 0:
+#                     count += 1
+#         return count
+#
+#
+# hi = Solution()
+# print(hi.numberOfPairs(nums1=[1, 3, 4], nums2=[1, 3, 4], k=1))
 
-cube.on_click = spin
-EditorCamera()
+# 1816
+# class Solution(object):
+#     def truncateSentence(self, s, k):
+#         return ' '.join(s.split()[:k])
+#
+#
+# hi = Solution()
+# print(hi.truncateSentence(s="Hello how are you Contestant", k=4))
 
-app.run()
+# 1662
+class Solution(object):
+    def arrayStringsAreEqual(self, word1, word2):
+        r1 = ''.join(word1)
+        r2 = ''.join(word2)
+        return r1 == r2
+
+
+hi = Solution()
+print(hi.arrayStringsAreEqual(word1=["ab", "c"], word2=["a", "bc"]))
+print(hi.arrayStringsAreEqual(["a", "cb"], word2=["ab", "c"]))
+print(hi.arrayStringsAreEqual(["abc", "d", "defg"], word2=["abcddefg"]))
