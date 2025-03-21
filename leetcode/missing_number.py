@@ -73,6 +73,7 @@
 # hi = Solution()
 # print(hi.containsDuplicate([1, 2, 3, 4]))
 
+
 # 977
 # class Solution(object):
 #     def sortedSquares(self, nums):
@@ -468,14 +469,58 @@
 # print(hi.truncateSentence(s="Hello how are you Contestant", k=4))
 
 # 1662
+# class Solution(object):
+#     def arrayStringsAreEqual(self, word1, word2):
+#         r1 = ''.join(word1)
+#         r2 = ''.join(word2)
+#         return r1 == r2
+#
+#
+# hi = Solution()
+# print(hi.arrayStringsAreEqual(word1=["ab", "c"], word2=["a", "bc"]))
+# print(hi.arrayStringsAreEqual(["a", "cb"], word2=["ab", "c"]))
+# print(hi.arrayStringsAreEqual(["abc", "d", "defg"], word2=["abcddefg"]))
+
+# 2000
+# class Solution(object):
+#     def reversePrefix(self, word, ch):
+#         for index, w in enumerate(word):
+#             if w == ch:
+#                 return word[:index + 1][::-1] + word[index + 1:]
+#         return word
+#
+#
+# hi = Solution()
+# print(hi.reversePrefix(word="abcdefd", ch="d")) # dcbaefd
+# print(hi.reversePrefix(word="xyxzxe", ch="z")) # zxyxxe
+# print(hi.reversePrefix(word="abcd", ch="z")) # abcd
+
+# 3194
+# class Solution(object):
+#     def minimumAverage(self, nums):
+#         nums.sort()
+#         result = []
+#         left, right = 0, len(nums) - 1
+#
+#         while left < right:
+#             avg = round((nums[left] + nums[right]) / 2.0, 1)
+#             result.append(avg)
+#             left += 1
+#             right -= 1
+#
+#         return min(result)
+#
+#
+# hi = Solution()
+# print(hi.minimumAverage([7, 8, 3, 4, 15, 13, 4, 1]))
+
+
 class Solution(object):
-    def arrayStringsAreEqual(self, word1, word2):
-        r1 = ''.join(word1)
-        r2 = ''.join(word2)
-        return r1 == r2
+    def mostWordsFound(self, sentences):
+        for sentence in sentences:
+            sentence.split()
+
 
 
 hi = Solution()
-print(hi.arrayStringsAreEqual(word1=["ab", "c"], word2=["a", "bc"]))
-print(hi.arrayStringsAreEqual(["a", "cb"], word2=["ab", "c"]))
-print(hi.arrayStringsAreEqual(["abc", "d", "defg"], word2=["abcddefg"]))
+print(hi.mostWordsFound(["alice and bob love leetcode", "i think so too", "this is great thanks very much"]))
