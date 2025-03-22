@@ -514,13 +514,35 @@
 # hi = Solution()
 # print(hi.minimumAverage([7, 8, 3, 4, 15, 13, 4, 1]))
 
+# 2418
+# class Solution(object):
+#     def sortPeople(self, names, heights):
+#         sorted_people = sorted(zip(heights, names), reverse=True)
+#         return [name for _, name in sorted_people]
+#
+#
+# hi = Solution()
+# print(hi.sortPeople(names=["Mary", "John", "Emma"], heights=[180, 165, 170]))
+
+# 1684 --------------
+# class Solution(object):
+#     def countConsistentStrings(self, allowed, words):
+#         count = 0
+#         for word in words:
+#             if set(word).issubset(allowed):
+#                 count += 1
+#         return count
+#
+#
+# hi = Solution()
+# print(hi.countConsistentStrings(allowed="ab", words=["ad", "bd", "aaab", "baa", "badab"]))  # 2
+# print(hi.countConsistentStrings(allowed="abc", words=["a", "b", "c", "ab", "ac", "bc", "abc"]))  # 7
 
 class Solution(object):
-    def mostWordsFound(self, sentences):
-        for sentence in sentences:
-            sentence.split()
-
+    def mergeAlternately(self, word1, word2):
+        result = zip(word1, word2)
+        return result
 
 
 hi = Solution()
-print(hi.mostWordsFound(["alice and bob love leetcode", "i think so too", "this is great thanks very much"]))
+print(hi.mergeAlternately(word1="abc", word2="pqr"))
