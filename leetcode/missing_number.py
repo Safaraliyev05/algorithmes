@@ -538,11 +538,11 @@
 # print(hi.countConsistentStrings(allowed="ab", words=["ad", "bd", "aaab", "baa", "badab"]))  # 2
 # print(hi.countConsistentStrings(allowed="abc", words=["a", "b", "c", "ab", "ac", "bc", "abc"]))  # 7
 
-class Solution(object):
-    def mergeAlternately(self, word1, word2):
-        result = zip(word1, word2)
-        return result
-
-
-hi = Solution()
-print(hi.mergeAlternately(word1="abc", word2="pqr"))
+# class Solution(object):
+#     def mergeAlternately(self, word1, word2):
+#         result = zip(word1, word2)
+#         return result
+#
+#
+# hi = Solution()
+# print(hi.mergeAlternately(word1="abc", word2="pqr"))
