@@ -538,11 +538,49 @@
 # print(hi.countConsistentStrings(allowed="ab", words=["ad", "bd", "aaab", "baa", "badab"]))  # 2
 # print(hi.countConsistentStrings(allowed="abc", words=["a", "b", "c", "ab", "ac", "bc", "abc"]))  # 7
 
+# 1 -------------- hash map
 # class Solution(object):
-#     def mergeAlternately(self, word1, word2):
-#         result = zip(word1, word2)
-#         return result
+#     def twoSum(self, nums, target):
+#         for i in range(len(nums)):
+#             for j in range(i + 1, len(nums)):
+#                 if nums[i] + nums[j] == target:
+#                     return [i, j]
 #
 #
 # hi = Solution()
-# print(hi.mergeAlternately(word1="abc", word2="pqr"))
+# print(hi.twoSum(nums=[2, 7, 11, 15], target=9))
+# print(hi.twoSum(nums=[3, 2, 4], target=6))
+# print(hi.twoSum(nums=[3, 3], target=6))
+# print(hi.twoSum(nums=[2, 5, 5, 11], target=10))
+
+# 2
+# Definition for singly-linked list.
+class ListNode(object):
+    def __init__(self, val=0, next=None):
+        self.val = val
+        self.next = next
+
+
+class Solution(object):
+    def addTwoNumbers(self, l1, l2):
+        carry = 0
+        curr1, curr2 = l1, l2
+        head = curr = ListNode(0)
+        while curr1 or curr2:
+            total = sum([
+                curr1.val if curr1 else 0,
+                curr2.val if curr2 else 0,
+                carry,
+            ])
+
+            digit = total % 10
+            carry = total // 10
+            curr.next = ListNode(digit)
+            curr = curr.next
+            if curr1: curr1 = curr1.next
+            if curr2: curr2 = curr2.next
+
+        if carry:
+            curr.next = ListNode(carry)
+
+        return head.next
