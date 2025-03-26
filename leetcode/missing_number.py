@@ -608,3 +608,4 @@
 #             return a
 #         else:
 #             return self.ekub(b, a % b)
+
