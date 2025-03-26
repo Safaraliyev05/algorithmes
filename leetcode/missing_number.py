@@ -555,32 +555,56 @@
 
 # 2
 # Definition for singly-linked list.
-class ListNode(object):
-    def __init__(self, val=0, next=None):
-        self.val = val
-        self.next = next
+# class ListNode(object):
+#     def __init__(self, val=0, next=None):
+#         self.val = val
+#         self.next = next
+# 
+# 
+# class Solution(object):
+#     def addTwoNumbers(self, l1, l2):
+#         carry = 0
+#         curr1, curr2 = l1, l2
+#         head = curr = ListNode(0)
+#         while curr1 or curr2:
+#             total = sum([
+#                 curr1.val if curr1 else 0,
+#                 curr2.val if curr2 else 0,
+#                 carry,
+#             ])
+# 
+#             digit = total % 10
+#             carry = total // 10
+#             curr.next = ListNode(digit)
+#             curr = curr.next
+#             if curr1: curr1 = curr1.next
+#             if curr2: curr2 = curr2.next
+# 
+#         if carry:
+#             curr.next = ListNode(carry)
+# 
+#         return head.next
 
-
-class Solution(object):
-    def addTwoNumbers(self, l1, l2):
-        carry = 0
-        curr1, curr2 = l1, l2
-        head = curr = ListNode(0)
-        while curr1 or curr2:
-            total = sum([
-                curr1.val if curr1 else 0,
-                curr2.val if curr2 else 0,
-                carry,
-            ])
-
-            digit = total % 10
-            carry = total // 10
-            curr.next = ListNode(digit)
-            curr = curr.next
-            if curr1: curr1 = curr1.next
-            if curr2: curr2 = curr2.next
-
-        if carry:
-            curr.next = ListNode(carry)
-
-        return head.next
+# 2807
+# Definition for singly-linked list.
+# class ListNode(object):
+#     def __init__(self, val=0, next=None):
+#         self.val = val
+#         self.next = next
+#
+#
+# class Solution(object):
+#     def insertGreatestCommonDivisors(self, head):
+#         curr = head
+#         while curr != None and curr.next != None:
+#             val = self.ekub(curr.val, curr.next.val)
+#             temp = ListNode(val, curr.next)
+#             curr.next = temp
+#             curr = curr.next.next
+#         return head
+#
+#     def ekub(self, a, b):
+#         if b == 0:
+#             return a
+#         else:
+#             return self.ekub(b, a % b)
