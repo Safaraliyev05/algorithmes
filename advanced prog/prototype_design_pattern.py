@@ -66,5 +66,24 @@ class EmployeeService:
         self.employees.append(employee)
         return employee
 
+    def clone(self):
+        service_clone = EmployeeService()
+        service_clone.employees = [emp.clone() for emp in self.employees]
+        return service_clone
+
     def __repr__(self):
         return f"EmployeeService({self.employees})"
+
+
+service = EmployeeService()
+
+emp1 = service.add_employee("Sardor", "Safaraliyev", 20)
+emp1.add_address("Namuna", "Ohangaron", "Tashkent")
+
+emp2 = service.add_employee("Ali", "Valiyev", 20)
+emp2.add_address("Baxt", "Asaka", "Andijon")
+
+clone = service.clone()
+
+print(service.__hash__())
+print(clone.__hash__())
