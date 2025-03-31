@@ -1,43 +1,36 @@
-import psycopg2
-from psycopg2 import pool
+def generate_spiral_matrix(m, n):
+    matrix = [[0] * n for _ in range(m)]
+
+    left, right, top, bottom = 0, n - 1, 0, m - 1
+    num = 1
+
+    while left <= right and top <= bottom:
+        for i in range(left, right + 1):
+            matrix[top][i] = num
+            num += 1
+        top += 1
+
+        for i in range(top, bottom + 1):
+            matrix[i][right] = num
+            num += 1
+        right -= 1
+
+        if top <= bottom:
+            for i in range(right, left - 1, -1):
+                matrix[bottom][i] = num
+                num += 1
+            bottom -= 1
+
+        if left <= right:
+            for i in range(bottom, top - 1, -1):
+                matrix[i][left] = num
+                num += 1
+            left += 1
+
+    return matrix
 
 
-class Database:
-    _instance = None
-
-    def __new__(cls, *args, **kwargs):
-        if not cls._instance:
-            cls._instance = super(Database, cls).__new__(cls)
-        return cls._instance
-
-    def __init__(self, db_name, user, password, host, port):
-        if not hasattr(self, 'connection_pool'):
-            self.connection_pool = psycopg2.pool.SimpleConnectionPool(
-                1, 10,
-                database=db_name,
-                user=user,
-                password=password,
-                host=host,
-                port=port
-            )
-
-#     def get_connection(self):
-#         return self.connection_pool.getconn()
-#
-#     def release_connection(self, connection):
-#         self.connection_pool.putconn(connection)
-#
-#
-# db = Database("vazifa", "postgres", "1337", "localhost", "5432")
-# conn = db.get_connection()
-#
-# with conn.cursor() as cursor:
-#     cursor.execute("SELECT version();")
-#     print(cursor.fetchone())
-#
-# db.release_connection(conn)
-
-db1 = Database("vazifa", "postgres", "1337", "localhost", "5432")
-db2 = Database("vazifa", "postgres", "1337", "localhost", "5432")
-
-print(db1 is db2)
+m, n = 4, 4  # Change these values as needed
+matrix = generate_spiral_matrix(m, n)
+for row in matrix:
+    print(row)

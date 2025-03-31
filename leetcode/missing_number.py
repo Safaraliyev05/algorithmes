@@ -609,3 +609,66 @@
 #         else:
 #             return self.ekub(b, a % b)
 
+# 1732
+# class Solution(object):
+#     def largestAltitude(self, gain):
+#         result = [0]
+#         for i in gain:
+#             result.append(result[-1] + i)
+#         return max(result)
+#
+#
+# hi = Solution()
+# print(hi.largestAltitude([-5, 1, 5, 0, -7]))
+# print(hi.largestAltitude([-4, -3, -2, -1, 4, 3, 2]))
+
+# 1365
+# class Solution(object):
+#     def smallerNumbersThanCurrent(self, nums):
+#         result = []
+#         for i in nums:
+#             count = 0
+#             for j in nums:
+#                 if i > j:
+#                     count += 1
+#             result.append(count)
+#         return result
+#
+#
+# hi = Solution()
+# print(hi.smallerNumbersThanCurrent([8, 1, 2, 2, 3]))
+
+# 1480
+# class Solution(object):
+#     def runningSum(self, nums):
+#         result = [nums[0]]
+#         for i in range(1, len(nums)):
+#             result.append(result[-1] + nums[i])
+#         return result
+#
+#
+# hi = Solution()
+# print(hi.runningSum([1, 2, 3, 4]))
+
+# 3427
+# class Solution(object):
+#     def subarraySum(self, nums):
+#         count = 0
+#         for i in range(len(nums)):
+#             start = max(0, i - nums[i])
+#             count += sum(nums[start:i + 1])
+#         return count
+#
+#
+# hi = Solution()
+# print(hi.subarraySum([2, 3, 1]))
+
+# 3285
+class Solution(object):
+    def stableMountains(self, height, threshold):
+        result = []
+
+
+hi = Solution()
+print(hi.stableMountains(height=[1, 2, 3, 4, 5], threshold=2))
+# print(hi.stableMountains(height=[10, 1, 10, 1, 10], threshold=3))
