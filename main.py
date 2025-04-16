@@ -151,3 +151,43 @@
 # hi = Solution()
 # hi.moveZeroes([0, 1, 0, 3, 12])
 
+# if 10 > 5:
+#     print("Togri 10 katta 5")
+
+# b = 5
+# if b < 7:
+#     print("katta")
+
+# a = int(input("Sonni kiriting: "))
+# if a <= 10:
+#     print("Togri")
+
+# if a % 2 == 0:
+#     print("Juft son")
+# else:
+#     print("Toq son")
+
+age = int(input("Yoshizi kiriting: "))
+if age >= 16:
+    practice = int(input("Practise kiriting: "))
+    if practice > 1:
+        print("Sertifikat berilsin")
+    else:
+        print("Oqishni davom eting")
+else:
+    print("Yoshingiz yetmadi")
+
+# if age < 8:
+#     print('Yoshsiz')
+# elif age > 15:
+#     print("Kattasiz")
+# else:
+#     print("Xush kelibsiz")
+
+son = int(input("Sonni kiriting: "))
+if son > 0:
+    print("Musbat son")
+elif son < 0:
+    print("Manfiy son")
+else:
+    print("Bu son 0")
