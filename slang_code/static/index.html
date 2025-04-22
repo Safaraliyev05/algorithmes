@@ -1,0 +1,202 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Web3 Realtime Chat</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background-color: #f4f4f9;
+      margin: 0;
+    }
+    .chat-container {
+      max-width: 600px;
+      margin: 20px auto;
+      padding: 20px;
+      background-color: white;
+      border-radius: 8px;
+      box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+    }
+    .chat-box {
+      height: 400px;
+      overflow-y: scroll;
+      border: 1px solid #ddd;
+      padding: 10px;
+      margin-bottom: 10px;
+      background-color: #fafafa;
+      border-radius: 4px;
+    }
+    .message {
+      margin: 8px 0;
+      padding: 8px;
+      border-radius: 4px;
+      background-color: #e6f3ff;
+    }
+    .message strong {
+      color: #333;
+    }
+    .message small {
+      color: #777;
+      margin-left: 10px;
+    }
+    .input-container {
+      display: flex;
+      gap: 10px;
+    }
+    input {
+      flex: 1;
+      padding: 10px;
+      border: 1px solid #ddd;
+      border-radius: 4px;
+      font-size: 16px;
+    }
+    button {
+      padding: 10px 20px;
+      background-color: #007bff;
+      color: white;
+      border: none;
+      border-radius: 4px;
+      cursor: pointer;
+      font-size: 16px;
+    }
+    button:hover {
+      background-color: #0056b3;
+    }
+    .error {
+      color: red;
+      margin-top: 10px;
+    }
+    .status {
+      text-align: right;
+      color: #666;
+      font-size: 12px;
+      margin-bottom: 10px;
+    }
+  </style>
+</head>
+<body>
+  <div class="chat-container">
+    <h2>Web3 Realtime Chat</h2>
+    <div class="status" id="ipfs-status">Checking IPFS status...</div>
+    <div class="chat-box" id="chat-box"></div>
+    <div class="input-container">
+      <input type="text" id="message-input" placeholder="Type your message..." />
+      <button id="send-button">Send</button>
+    </div>
+    <div class="error" id="error-box"></div>
+  </div>
+
+  <script>
+    // Generate a random user ID
+    const userId = 'user_' + Math.random().toString(36).substr(2, 9);
+
+    // DOM elements
+    const chatBox = document.getElementById('chat-box');
+    const messageInput = document.getElementById('message-input');
+    const sendButton = document.getElementById('send-button');
+    const errorBox = document.getElementById('error-box');
+    const statusBox = document.getElementById('ipfs-status');
+
+    // Check IPFS status
+    fetch('/api/status')
+      .then(response => response.json())
+      .then(data => {
+        if (data.ipfs_connected) {
+          statusBox.textContent = 'IPFS Connected ✓';
+          statusBox.style.color = 'green';
+        } else {
+          statusBox.textContent = 'IPFS Offline ✗ (Using local storage)';
+          statusBox.style.color = 'orange';
+        }
+      })
+      .catch(error => {
+        statusBox.textContent = 'Server error ✗';
+        statusBox.style.color = 'red';
+        console.error('Error checking status:', error);
+      });
+
+    // Load existing messages
+    function loadMessages() {
+      fetch('/api/messages')
+        .then(response => response.json())
+        .then(messages => {
+          chatBox.innerHTML = '';
+          messages.forEach(displayMessage);
+          chatBox.scrollTop = chatBox.scrollHeight;
+        })
+        .catch(error => {
+          console.error('Error loading messages:', error);
+          errorBox.textContent = 'Failed to load messages.';
+        });
+    }
+
+    // Display a message in the chat box
+    function displayMessage(message) {
+      const messageDiv = document.createElement('div');
+      messageDiv.className = 'message';
+
+      const sender = document.createElement('strong');
+      sender.textContent = message.user + ': ';
+
+      const text = document.createTextNode(message.text);
+
+      const timestamp = document.createElement('small');
+      timestamp.textContent = `(${new Date(message.timestamp).toLocaleTimeString()})`;
+
+      messageDiv.appendChild(sender);
+      messageDiv.appendChild(text);
+      messageDiv.appendChild(timestamp);
+
+      chatBox.appendChild(messageDiv);
+    }
+
+    // Send a message
+    function sendMessage() {
+      const text = messageInput.value.trim();
+      if (!text) return;
+
+      // Clear input
+      messageInput.value = '';
+
+      // Send to server
+      fetch('/api/send', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json'
+        },
+        body: JSON.stringify({
+          user: userId,
+          text: text
+        })
+      })
+      .then(response => response.json())
+      .then(message => {
+        displayMessage(message);
+        chatBox.scrollTop = chatBox.scrollHeight;
+        errorBox.textContent = '';
+      })
+      .catch(error => {
+        console.error('Error sending message:', error);
+        errorBox.textContent = 'Failed to send message. Please try again.';
+      });
+    }
+
+    // Event listeners
+    sendButton.addEventListener('click', sendMessage);
+
+    messageInput.addEventListener('keypress', (e) => {
+      if (e.key === 'Enter') {
+        sendMessage();
+      }
+    });
+
+    // Poll for new messages every 2 seconds
+    // This is a fallback for when IPFS pubsub is not working
+    setInterval(loadMessages, 2000);
+
+    // Initial message load
+    loadMessages();
+  </script>
+</body>
+</html>
