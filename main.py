@@ -152,16 +152,128 @@
 # hi.moveZeroes([0, 1, 0, 3,
 
 
-a = int(input("1-chi sonni kiriting: "))
-b = int(input("2-chi sonni kiriting: "))
-c = input("amallarni kiriting +, -, /, *")
-if c == "+":
-    print("Natija", a + b)
-elif c == "-":
-    print("Natija", a - b)
-elif c == "/":
-    print("Natija", a / b)
-elif c == "*":
-    print("Natija", a * b)
-else:
-    print("Bunday amallar mavjud emas")
+# a = int(input("1-chi sonni kiriting: "))
+# b = int(input("2-chi sonni kiriting: "))
+# c = input("amallarni kiriting +, -, /, *")
+# if c == "+":
+#     print("Natija", a + b)
+# elif c == "-":
+#     print("Natija", a - b)
+# elif c == "/":
+#     print("Natija", a / b)
+# elif c == "*":
+#     print("Natija", a * b)
+# else:
+#     print("Bunday amallar mavjud emas")
+# import flet as ft
+#
+# def main(page: ft.Page):
+#     page.title = "Kalkulyator"
+#     page.theme_mode = ft.ThemeMode.LIGHT
+#     page.window_width = 300
+#     page.window_height = 400
+#
+#     display = ft.Text(value="", size=30, text_align=ft.TextAlign.RIGHT, expand=True)
+#     current_input = ""
+#
+#     def on_click(e):
+#         nonlocal current_input
+#         value = e.control.text
+#
+#         if value == "C":
+#             current_input = ""
+#         elif value == "=":
+#             try:
+#                 result = eval(current_input)
+#                 current_input = str(result)
+#             except:
+#                 current_input = "Xatolik!"
+#         else:
+#             current_input += value
+#
+#         display.value = current_input
+#         page.update()
+#
+#     def create_button(text):
+#         return ft.ElevatedButton(
+#             text=text, width=60, height=60, on_click=on_click
+#         )
+#
+#     # Layout buttons like a real calculator
+#     buttons = [
+#         ["7", "8", "9", "/"],
+#         ["4", "5", "6", "*"],
+#         ["1", "2", "3", "-"],
+#         ["0", "C", "=", "+"],
+#     ]
+#
+#     grid = ft.Column()
+#
+#     for row in buttons:
+#         row_widgets = ft.Row([create_button(btn) for btn in row], alignment=ft.MainAxisAlignment.CENTER)
+#         grid.controls.append(row_widgets)
+#
+#     page.add(
+#         ft.Container(
+#             content=ft.Column([
+#                 ft.Container(display, padding=10, bgcolor="#eeeeee", border_radius=10),
+#                 grid
+#             ]),
+#             padding=20,
+#             bgcolor="#f5f5f5",
+#             border_radius=20,
+#         )
+#     )
+#
+# ft.app(target=main)
+import tkinter as tk
+
+
+def on_click(value):
+    current = entry_var.get()
+    if value == "C":
+        entry_var.set("")
+    elif value == "=":
+        try:
+            result = eval(current)
+            entry_var.set(result)
+        except:
+            entry_var.set("Xatolik!")
+    else:
+        entry_var.set(current + value)
+
+
+# Create main window
+root = tk.Tk()
+root.title("Kalkulyator")
+root.geometry("300x400")
+root.resizable(False, False)
+
+# Entry field
+entry_var = tk.StringVar()
+entry = tk.Entry(root, textvariable=entry_var, font=("Arial", 24), bd=10, relief="ridge", justify="right")
+entry.grid(row=0, column=0, columnspan=4, ipadx=8, ipady=25, sticky="nsew")
+
+# Buttons layout
+buttons = [
+    ["7", "8", "9", "/"],
+    ["4", "5", "6", "*"],
+    ["1", "2", "3", "-"],
+    ["0", "C", "=", "+"]
+]
+
+# Create buttons dynamically
+for r, row in enumerate(buttons, 1):
+    for c, char in enumerate(row):
+        btn = tk.Button(root, text=char, font=("Arial", 18), width=5, height=2,
+                        command=lambda ch=char: on_click(ch))
+        btn.grid(row=r, column=c, sticky="nsew", padx=3, pady=3)
+
+# Equal sizing
+for i in range(4):
+    root.grid_columnconfigure(i, weight=1)
+for i in range(5):
+    root.grid_rowconfigure(i, weight=1)
+
+# Start the app
+root.mainloop()
